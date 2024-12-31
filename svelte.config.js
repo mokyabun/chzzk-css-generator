@@ -18,6 +18,9 @@ const config = {
             $utils: './src/libs/utils',
             $state: './src/libs/state',
         },
+        output: {
+            bundleStrategy: 'single'
+        }
     },
 }
 
