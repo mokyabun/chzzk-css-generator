@@ -1,0 +1,20 @@
+    --size: <%= it.general.size %>px;
+    --gap: <%= it.general.gap %>em;
+
+    --text-size: <%= it.text.size %>em;
+    --text-color: <%= it.text.color %>;
+    --text-spacing: <%= it.text.spacing %>px;
+    --text-height: <%= it.text.height %>em;
+
+    --nickname-size: <%= it.nickname.size %>em;
+    --nickname-gap: <%= it.nickname.gap %>em;
+
+    --container-color: <%= it.container.color %>;
+    --container-padding: <%= it.container.padding %>em;
+    --container-roundness: <%= it.container.roundness %>em;
+    <%- if (it.effect.chat.showEffect) { %>
+    --chat-show-effect: <%= it.effect.chat.showEffect %>;
+    <% } -%>
+    <%- if (it.effect.chat.duration) { %>
+    --chat-duration: <%= it.effect.chat.duration %>s;
+    <%_ } %>

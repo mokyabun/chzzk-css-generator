@@ -1,0 +1,4 @@
+    font-family: 'Chzzk-CSS-Font';
+    src: url('<%= it.general.font %>') format('woff2');
+    font-weight: normal;
+    font-style: normal;
