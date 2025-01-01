@@ -14,9 +14,12 @@ export const defaultValue: Config = {
     },
     nickname: {
         enabled: true,
+        badge: true,
         size: 1,
         break: false,
         gap: 0.1,
+        overrideColor: false,
+        color: '#FFFFFF',
     },
     container: {
         enabled: true,

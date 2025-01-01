@@ -18,6 +18,9 @@ export const schema = object({
         size: number().min(0),
         break: boolean(),
         gap: number().min(0),
+        badge: boolean(),
+        overrideColor: boolean(),
+        color: string(),
     }),
     container: object({
         enabled: boolean(),

@@ -22,5 +22,21 @@
             닉네임-채팅 간격
             <input type="number" class="input input-bordered w-3/4" bind:value={config.nickname.gap} />
         </InternalContainer>
+        <InternalContainer>
+            닉네임 색상
+            <div class="w-3/4 flex">
+                <Checkbox bind:checked={config.nickname.overrideColor} />
+                {#if config.nickname.overrideColor}
+                    <input type="color" class="input input-bordered w-3/4" bind:value={config.nickname.color} />
+                {/if}
+            </div>
+        </InternalContainer>
     {/if}
+</Container>
+
+<Container category="배지">
+    <InternalContainer>
+        활성화
+        <Checkbox bind:checked={config.nickname.badge} />
+    </InternalContainer>
 </Container>

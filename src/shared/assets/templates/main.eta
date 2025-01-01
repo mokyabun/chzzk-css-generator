@@ -77,10 +77,6 @@ span[class*='live_chatting_username_container'] {
     display: block !important;
     <% } %>
 }
-<% } else { %>
-span[class*='live_chatting_username_container'] {
-    display: none !important;
-}
 <% } %>
 
 span[class*='live_chatting_message_text'] {
@@ -98,17 +94,35 @@ span[class*='live_chatting_message_text'] > svg {
 }
 
 span[class*='live_chatting_username_wrapper'] {
+    <% if (it.nickname.badge) { %>
     vertical-align: middle !important;
     height: 1em !important;
 
     gap: 0.1em !important;
     margin: -0.2em 0.1em 0 0 !important;
+    <% } else { %>
+    display: none !important;
+    <% } %>
 }
 
+<% if (!it.nickname.enabled) { %>
+span[class*='live_chatting_username_nickname'] {
+    display: none !important;
+}
+<% } else { %>
+span[class*='live_chatting_username_nickname'] {
+    <% if (it.nickname.overrideColor) { %>
+    color: <%= it.nickname.color %> !important;
+    <% } %>
+}
+<% } %>
+
+<% if (it.nickname.divider === true) { %>
 span[class*='live_chatting_username_nickname']::after {
     /* Add ':' after nickname */
     content: ' : ';
 }
+<% } %>
 
 span[class*='badge_container'] > img,
 span[class*='badge_container'] > svg {
