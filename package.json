@@ -5,7 +5,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "vite build && svelte-sitemap --domain https://chat.kya.sh",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -15,8 +15,7 @@
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build",
-		"postbuild": "svelte-sitemap --domain https://chat.kya.sh"
+		"build-storybook": "storybook build"
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "^3.2.3",
