@@ -3,7 +3,7 @@ import { generateOutline } from './outline'
 import { Eta } from 'eta'
 import type { Config, PreprocessedConfig } from './css.svelte'
 
-const mainEta = new Eta({ autoTrim: false })
+const mainEta = new Eta()
 const mainFn = mainEta.compile(Main)
 
 const eta = new Eta({ autoTrim: false })
