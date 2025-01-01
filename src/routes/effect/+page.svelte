@@ -14,7 +14,7 @@
         <select class="select select-bordered w-3/4" bind:value={config.effect.chat.showEffect}>
             <option value={undefined}>없음</option>
             {#each Object.entries(effects) as [key, value]}
-                <option value={key} disabled>{key}</option>
+                <option value={null} disabled>{key}</option>
                 {#each value as effect}
                     <option value={effect}>{effect}</option>
                 {/each}
