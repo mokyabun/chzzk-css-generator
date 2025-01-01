@@ -33,8 +33,8 @@ export const defaultValue: Config = {
     effect: {
         topGradient: false,
         chat: {
-            showEffect: 'fade',
-            duration: 0.2,
+            showEffect: 'fadeIn',
+            showDuration: 0.2,
         },
     },
 }

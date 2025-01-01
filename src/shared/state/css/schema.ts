@@ -35,7 +35,7 @@ export const schema = object({
         topGradient: boolean(),
         chat: object({
             showEffect: string().optional(),
-            duration: number().min(0),
+            showDuration: number().min(0),
         }),
     }),
 })

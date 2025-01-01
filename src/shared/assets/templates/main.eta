@@ -1,3 +1,7 @@
+<% if (it.effect.chat.showEffect) { %>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+<% } %>
+
 [class*='live_overlay_chatting'] {
     padding: 3px !important;
 
@@ -42,7 +46,8 @@ div[class*='live_overlay_message'] {
     max-width: 100% !important;
 
     <% if (it.effect.chat.showEffect) { %>
-    animation: var(--chat-show-effect) var(--chat-duration) !important;
+    animation: <%= it.effect.chat.showEffect %> !important;
+    animation-duration: <%= it.effect.chat.showDuration %>s !important;
     <% } else { %>
     animation: none !important;
     <% } %>

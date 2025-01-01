@@ -19,7 +19,7 @@
             <input type="number" class="input input-bordered w-3/4" bind:value={config.nickname.size} />
         </InternalContainer>
         <InternalContainer>
-            간격
+            닉네임-채팅 간격
             <input type="number" class="input input-bordered w-3/4" bind:value={config.nickname.gap} />
         </InternalContainer>
     {/if}

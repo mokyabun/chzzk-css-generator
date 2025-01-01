@@ -5,7 +5,7 @@
 
 <Container category="일반">
     <InternalContainer>
-        사이즈
+        전체 사이즈
         <input type="number" class="input input-bordered w-3/4" bind:value={config.general.size} />
     </InternalContainer>
     <InternalContainer>

@@ -14,7 +14,5 @@
     --container-roundness: <%= it.container.roundness %>em;
     <%- if (it.effect.chat.showEffect) { %>
     --chat-show-effect: <%= it.effect.chat.showEffect %>;
-    <% } -%>
-    <%- if (it.effect.chat.duration) { %>
-    --chat-duration: <%= it.effect.chat.duration %>s;
+    --chat-show-duration: <%= it.effect.chat.showDuration %>s;
     <%_ } %>

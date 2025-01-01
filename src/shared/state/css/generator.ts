@@ -3,7 +3,7 @@ import { generateOutline } from './outline'
 import { Eta } from 'eta'
 import type { Config, PreprocessedConfig } from './css.svelte'
 
-const mainEta = new Eta()
+const mainEta = new Eta({ autoTrim: false })
 const mainFn = mainEta.compile(Main)
 
 const eta = new Eta({ autoTrim: false })
@@ -28,6 +28,10 @@ export function preprocess(config: Config): PreprocessedConfig {
     }
 }
 
+function animateCSSImporter(config: PreprocessedConfig) {
+    return config.effect.chat.showEffect ? '@import url(\'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css\');' : ''
+}
+
 function generateFont(config: PreprocessedConfig): string {
     return '@font-face {\n' + eta.render(fontFn, config) + '\n}\n'
 }
@@ -41,10 +45,11 @@ function generateMain(config: PreprocessedConfig): string {
 }
 
 export async function generate(preprocessed: PreprocessedConfig) {
-    const [variables, font, main] = await Promise.all([
+    const results = await Promise.all([
+        animateCSSImporter(preprocessed),
         generateVariables(preprocessed),
         generateFont(preprocessed),
         generateMain(preprocessed),
     ])
-    return [variables, font, main].join('\n')
+    return results.join('\n')
 }

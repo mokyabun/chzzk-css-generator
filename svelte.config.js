@@ -13,10 +13,10 @@ const config = {
         // See https://svelte.dev/docs/kit/adapters for more information about adapters.
         adapter: adapter(),
         alias: {
-            $assets: './src/libs/assets',
-            $components: './src/libs/components',
-            $utils: './src/libs/utils',
-            $state: './src/libs/state',
+            $assets: './src/shared/assets',
+            $components: './src/shared/components',
+            $utils: './src/shared/utils',
+            $state: './src/shared/state',
         },
         output: {
             bundleStrategy: 'single'

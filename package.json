@@ -1,7 +1,7 @@
 {
 	"name": "generator",
 	"private": true,
-	"version": "0.0.1",
+	"version": "0.2.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -15,7 +15,8 @@
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test",
 		"storybook": "storybook dev -p 6006",
-		"build-storybook": "storybook build"
+		"build-storybook": "storybook build",
+		"postbuild": "svelte-sitemap --domain https://chat.kya.sh"
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "^3.2.3",
@@ -49,6 +50,7 @@
 		"storybook": "^8.4.7",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
+		"svelte-sitemap": "^2.6.0",
 		"tailwindcss": "^3.4.9",
 		"terser": "^5.37.0",
 		"typescript": "^5.0.0",
