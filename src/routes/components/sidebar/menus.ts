@@ -17,7 +17,7 @@ export const menus: (MenuProp | Divider)[] = [
     },
     'divider',
     {
-        title: '채팅 텍스트',
+        title: '텍스트',
         route: '/text',
         icon: Message,
     },
@@ -43,7 +43,7 @@ export const menus: (MenuProp | Divider)[] = [
     },
     'divider',
     {
-        title: 'CSS 코드',
+        title: '생성된 CSS',
         route: '/generated',
         icon: File,
     },

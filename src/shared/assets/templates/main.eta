@@ -102,8 +102,7 @@ span[class*='live_chatting_username_wrapper'] {
     height: 1em !important;
 
     gap: 0.1em !important;
-    margin: -0.2em 0 0 0 !important;
-    margin-right: 0.1em !important;
+    margin: -0.2em 0.1em 0 0 !important;
 }
 
 span[class*='live_chatting_username_nickname']::after {

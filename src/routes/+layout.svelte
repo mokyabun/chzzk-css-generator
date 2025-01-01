@@ -12,9 +12,9 @@
 <div class="fixed top-0 flex h-screen w-full bg-base-200 pt-16">
     <div class="flex w-[65%] divide-base-content/20">
         <Sidebar />
-        <div class="m-6 flex flex-1 flex-col justify-between gap-6 overflow-y-auto rounded-xl bg-base-100 p-6">
+        <div class="m-6 flex flex-1 flex-col gap-8 overflow-y-auto p-6 pb-20 relative">
             {@render children()}
-            <div class="text-xs font-extralight">
+            <div class="absolute text-xs font-extralight justify-self-end bottom-0">
                 버그 제보 및 문의:
                 <p class="inline font-bold">
                     <a href="mailto:mo@kya.sh" class="link">mokya</a>

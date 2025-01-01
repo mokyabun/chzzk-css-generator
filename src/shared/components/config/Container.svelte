@@ -12,7 +12,7 @@
 
 <div>
     <h2 class="mb-2 text-2xl font-light">{category}</h2>
-    <div class="flex flex-col gap-y-6 border-t-2 border-base-200 p-6 {className}">
+    <div class="flex flex-col gap-y-6 bg-base-100 rounded-xl shadow-lg p-6 {className}">
         {@render children?.()}
     </div>
 </div>
