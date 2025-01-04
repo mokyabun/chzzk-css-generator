@@ -69,14 +69,44 @@ div[class*='live_chatting_message_wrapper'] {
     <% } %>
 }
 
-<% if (it.nickname.enabled) { %>
+<% if (!it.nickname.badge && !it.nickname.enabled) { %>
 span[class*='live_chatting_username_container'] {
-    font-size: var(--nickname-size) !important;
-    margin-right: var(--nickname-gap) !important;
-    <% if (it.nickname.break === true) { %>
-    display: block !important;
+    display: none !important;
+}
+<% } else { %>
+span[class*='live_chatting_username_wrapper'] {
+    <% if (it.nickname.badge) { %>
+    vertical-align: middle !important;
+    height: 1em !important;
+
+    gap: 0.1em !important;
+    margin: -0.2em 0.1em 0 0 !important;
+    <% } else { %>
+    display: none !important;
     <% } %>
 }
+
+<% if (it.nickname.enabled) { %>
+span[class*='live_chatting_username_container'] {
+   font-size: var(--nickname-size) !important;
+   margin-right: var(--nickname-gap) !important;
+   <% if (it.nickname.break === true) { %>
+   display: block !important;
+   <% } %>
+}
+<% } %>
+
+<% if (!it.nickname.enabled) { %>
+span[class*='live_chatting_username_nickname'] {
+    display: none !important;
+}
+<% } else { %>
+span[class*='live_chatting_username_nickname'] {
+    <% if (it.nickname.overrideColor) { %>
+    color: <%= it.nickname.color %> !important;
+    <% } %>
+}
+<% } %>
 <% } %>
 
 span[class*='live_chatting_message_text'] {
@@ -92,30 +122,6 @@ span[class*='live_chatting_message_text'] > svg {
     height: 1.6em !important;
     width: auto !important;
 }
-
-span[class*='live_chatting_username_wrapper'] {
-    <% if (it.nickname.badge) { %>
-    vertical-align: middle !important;
-    height: 1em !important;
-
-    gap: 0.1em !important;
-    margin: -0.2em 0.1em 0 0 !important;
-    <% } else { %>
-    display: none !important;
-    <% } %>
-}
-
-<% if (!it.nickname.enabled) { %>
-span[class*='live_chatting_username_nickname'] {
-    display: none !important;
-}
-<% } else { %>
-span[class*='live_chatting_username_nickname'] {
-    <% if (it.nickname.overrideColor) { %>
-    color: <%= it.nickname.color %> !important;
-    <% } %>
-}
-<% } %>
 
 <% if (it.nickname.divider === true) { %>
 span[class*='live_chatting_username_nickname']::after {
