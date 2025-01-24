@@ -7,6 +7,7 @@ export interface User {
 }
 
 export interface Chat {
+    id: symbol
     user: User
     message: string | EmojiMessage
 }
@@ -92,6 +93,7 @@ function randomUser(): User {
 
 export function textChat(): Chat {
     return {
+        id: Symbol(),
         user: randomUser(),
         message: chat[Math.floor(Math.random() * chat.length)],
     }
@@ -102,6 +104,7 @@ export function emojiChat(): Chat {
     const length = Math.floor(Math.random() * 5) + 1
 
     return {
+        id: Symbol(),
         user: randomUser(),
         message: Array.from({ length }, () => emoji),
     }

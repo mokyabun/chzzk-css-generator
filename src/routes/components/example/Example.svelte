@@ -43,7 +43,7 @@
         },
     )
 
-    const scrollToBottom = (node: HTMLDivElement) => {
+    const scrollToBottom = (node: HTMLDivElement, messages: Chat[]) => {
         const scroll = () =>
             node.scroll({
                 top: node.scrollHeight,
@@ -76,7 +76,7 @@
     <div class="chat-example h-full p-4">
         {#if css.value}
             <div class="live_overlay_chatting__gG7gu {className}" use:scrollToBottom={messages}>
-                {#each messages as message}
+                {#each messages as message (message.id)}
                     <div class="live_overlay_item__Sg18i live_overlay_message__lLCT1">
                         <div class="live_chatting_message_container__vrI-y live_chatting_message_is_overlay__cALCf">
                             <div class="live_chatting_message_wrapper__xpYre">
@@ -185,69 +185,69 @@
         .live_chatting_message_container__vrI-y:not(
                 .live_chatting_message_is_overlay__cALCf
             ).live_chatting_message_is_hidden__CLKiR
-            .live_chatting_message_text__DyleH {
+        .live_chatting_message_text__DyleH {
             color: var(--color-content-03) !important;
             opacity: 0.3;
         }
 
         .live_chatting_message_container__vrI-y:not(.live_chatting_message_is_overlay__cALCf)
-            .live_chatting_message_text__DyleH {
+        .live_chatting_message_text__DyleH {
             color: var(--color-content-02);
         }
 
         .live_chatting_message_container__vrI-y:not(.live_chatting_message_is_overlay__cALCf)
-            .live_chatting_message_text__DyleH.live_chatting_message_highlight__k5SfA {
+        .live_chatting_message_text__DyleH.live_chatting_message_highlight__k5SfA {
             color: var(--Content-Accent-Violet-Strong);
         }
 
         .live_chatting_message_container__vrI-y:not(.live_chatting_message_is_overlay__cALCf)
-            .live_chatting_message_wrapper__xpYre {
+        .live_chatting_message_wrapper__xpYre {
             line-height: 20px;
         }
 
         .live_chatting_message_container__vrI-y:not(.live_chatting_message_is_overlay__cALCf)
-            button.live_chatting_message_wrapper__xpYre {
+        button.live_chatting_message_wrapper__xpYre {
             max-width: 100%;
             padding: 4px 8px 4px 6px;
             text-align: left;
         }
 
         .live_chatting_message_container__vrI-y:not(.live_chatting_message_is_overlay__cALCf)
-            button.live_chatting_message_wrapper__xpYre:active,
+        button.live_chatting_message_wrapper__xpYre:active,
         .live_chatting_message_container__vrI-y:not(.live_chatting_message_is_overlay__cALCf)
-            button.live_chatting_message_wrapper__xpYre:focus-visible,
+        button.live_chatting_message_wrapper__xpYre:focus-visible,
         .live_chatting_message_container__vrI-y:not(.live_chatting_message_is_overlay__cALCf)
-            button.live_chatting_message_wrapper__xpYre:hover {
+        button.live_chatting_message_wrapper__xpYre:hover {
             background-color: var(--color-bg-overlay-03);
             border-radius: 8px;
         }
 
         .live_chatting_message_container__vrI-y.live_chatting_message_is_overlay__cALCf
-            .live_chatting_message_wrapper__xpYre {
+        .live_chatting_message_wrapper__xpYre {
             font-size: 24px;
             line-height: 32px;
             padding: 8px 13px;
         }
 
         .live_chatting_message_container__vrI-y.live_chatting_message_is_overlay__cALCf
-            .live_chatting_message_text__DyleH {
+        .live_chatting_message_text__DyleH {
             color: var(--color-content-01-fixed);
         }
 
         .live_chatting_message_container__vrI-y.live_chatting_message_is_overlay__cALCf
-            .live_chatting_message_text__DyleH
-            em {
+        .live_chatting_message_text__DyleH
+        em {
             color: var(--color-content-chzzk-01-fixed);
         }
 
         .live_chatting_message_container__vrI-y.live_chatting_message_is_overlay__cALCf
-            .live_chatting_message_text__DyleH
-            img {
+        .live_chatting_message_text__DyleH
+        img {
             margin: 4px 0 4px 6px;
         }
 
         .live_chatting_message_container__vrI-y.live_chatting_message_is_overlay__cALCf.live_chatting_message_is_hidden__CLKiR
-            .live_chatting_message_text__DyleH {
+        .live_chatting_message_text__DyleH {
             color: rgba(var(--color-content-01-fixed-rgb), 0.3) !important;
         }
 
@@ -263,24 +263,24 @@
         }
 
         .live_chatting_message_container__vrI-y.live_chatting_message_is_overlay__cALCf
-            .live_chatting_message_text__DyleH {
+        .live_chatting_message_text__DyleH {
             color: var(--color-content-01-fixed);
         }
 
         .live_chatting_message_container__vrI-y.live_chatting_message_is_overlay__cALCf
-            .live_chatting_message_text__DyleH
-            em {
+        .live_chatting_message_text__DyleH
+        em {
             color: var(--color-content-chzzk-01-fixed);
         }
 
         .live_chatting_message_container__vrI-y.live_chatting_message_is_overlay__cALCf
-            .live_chatting_message_text__DyleH
-            img {
+        .live_chatting_message_text__DyleH
+        img {
             margin: 4px 0 4px 6px;
         }
 
         .live_chatting_message_container__vrI-y.live_chatting_message_is_overlay__cALCf.live_chatting_message_is_hidden__CLKiR
-            .live_chatting_message_text__DyleH {
+        .live_chatting_message_text__DyleH {
             color: rgba(var(--color-content-01-fixed-rgb), 0.3) !important;
         }
 
@@ -335,21 +335,21 @@
             ):not(.live_chatting_username_donation_alarm__xEM44):not(
                 .live_chatting_username_is_subscription__G\+gtA
             ):not(.live_chatting_username_is_mission__TVMIj)
-            .live_chatting_username_icon__6Dj7b {
+        .live_chatting_username_icon__6Dj7b {
             height: 18px;
             width: 18px;
         }
 
         .live_chatting_username_container__m1-i5.live_chatting_username_is_overlay__A8Xmr
-            .live_chatting_username_wrapper__iJpJB {
+        .live_chatting_username_wrapper__iJpJB {
             gap: 6px;
             line-height: 28px;
             margin-right: 6px;
         }
 
         .live_chatting_username_container__m1-i5.live_chatting_username_is_overlay__A8Xmr
-            .live_chatting_username_wrapper__iJpJB
-            + .live_chatting_username_nickname__dDbbj {
+        .live_chatting_username_wrapper__iJpJB
+        + .live_chatting_username_nickname__dDbbj {
             margin-left: 2px;
         }
 
@@ -358,24 +358,24 @@
         }
 
         .live_chatting_username_container__m1-i5.live_chatting_username_is_donation__eXMYs
-            .live_chatting_username_nickname__dDbbj {
+        .live_chatting_username_nickname__dDbbj {
             color: var(--color-content-01-fixed) !important;
             font-family:
-                Sandoll Nemony2,
-                Apple SD Gothic NEO,
-                Helvetica Neue,
-                Helvetica,
-                나눔고딕,
-                NanumGothic,
-                Malgun Gothic,
-                맑은 고딕,
-                굴림,
-                gulim,
-                새굴림,
-                noto sans,
-                돋움,
-                Dotum,
-                sans-serif;
+                    Sandoll Nemony2,
+                    Apple SD Gothic NEO,
+                    Helvetica Neue,
+                    Helvetica,
+                    나눔고딕,
+                    NanumGothic,
+                    Malgun Gothic,
+                    맑은 고딕,
+                    굴림,
+                    gulim,
+                    새굴림,
+                    noto sans,
+                    돋움,
+                    Dotum,
+                    sans-serif;
             font-weight: 400;
             vertical-align: top;
         }
@@ -385,53 +385,53 @@
         }
 
         .live_chatting_username_container__m1-i5.live_chatting_username_donation_alarm__xEM44
-            .live_chatting_username_wrapper__iJpJB {
+        .live_chatting_username_wrapper__iJpJB {
             gap: 10px;
             margin-right: 8px;
         }
 
         .live_chatting_username_container__m1-i5.live_chatting_username_donation_alarm__xEM44
-            .live_chatting_username_nickname__dDbbj {
+        .live_chatting_username_nickname__dDbbj {
             color: var(--color-content-chzzk-01-fixed) !important;
             font-family:
-                Sandoll Nemony2,
-                Apple SD Gothic NEO,
-                Helvetica Neue,
-                Helvetica,
-                나눔고딕,
-                NanumGothic,
-                Malgun Gothic,
-                맑은 고딕,
-                굴림,
-                gulim,
-                새굴림,
-                noto sans,
-                돋움,
-                Dotum,
-                sans-serif;
+                    Sandoll Nemony2,
+                    Apple SD Gothic NEO,
+                    Helvetica Neue,
+                    Helvetica,
+                    나눔고딕,
+                    NanumGothic,
+                    Malgun Gothic,
+                    맑은 고딕,
+                    굴림,
+                    gulim,
+                    새굴림,
+                    noto sans,
+                    돋움,
+                    Dotum,
+                    sans-serif;
             font-weight: 400;
             vertical-align: top;
         }
 
         .live_chatting_username_container__m1-i5.live_chatting_username_is_mission__TVMIj
-            .live_chatting_username_nickname__dDbbj {
+        .live_chatting_username_nickname__dDbbj {
             color: inherit !important;
             font-family:
-                Sandoll Nemony2,
-                Apple SD Gothic NEO,
-                Helvetica Neue,
-                Helvetica,
-                나눔고딕,
-                NanumGothic,
-                Malgun Gothic,
-                맑은 고딕,
-                굴림,
-                gulim,
-                새굴림,
-                noto sans,
-                돋움,
-                Dotum,
-                sans-serif;
+                    Sandoll Nemony2,
+                    Apple SD Gothic NEO,
+                    Helvetica Neue,
+                    Helvetica,
+                    나눔고딕,
+                    NanumGothic,
+                    Malgun Gothic,
+                    맑은 고딕,
+                    굴림,
+                    gulim,
+                    새굴림,
+                    noto sans,
+                    돋움,
+                    Dotum,
+                    sans-serif;
             font-weight: 400;
             vertical-align: top;
         }
@@ -441,24 +441,24 @@
         }
 
         .live_chatting_username_container__m1-i5.live_chatting_username_is_subscription__G\+gtA
-            .live_chatting_username_nickname__dDbbj {
+        .live_chatting_username_nickname__dDbbj {
             color: inherit !important;
             font-family:
-                Sandoll Nemony2,
-                Apple SD Gothic NEO,
-                Helvetica Neue,
-                Helvetica,
-                나눔고딕,
-                NanumGothic,
-                Malgun Gothic,
-                맑은 고딕,
-                굴림,
-                gulim,
-                새굴림,
-                noto sans,
-                돋움,
-                Dotum,
-                sans-serif;
+                    Sandoll Nemony2,
+                    Apple SD Gothic NEO,
+                    Helvetica Neue,
+                    Helvetica,
+                    나눔고딕,
+                    NanumGothic,
+                    Malgun Gothic,
+                    맑은 고딕,
+                    굴림,
+                    gulim,
+                    새굴림,
+                    noto sans,
+                    돋움,
+                    Dotum,
+                    sans-serif;
             font-weight: 400;
             overflow: hidden;
         }
@@ -470,13 +470,13 @@
         }
 
         .live_chatting_username_container__m1-i5.live_chatting_username_is_ellipsis__5DqoB
-            .live_chatting_username_wrapper__iJpJB {
+        .live_chatting_username_wrapper__iJpJB {
             -ms-flex: none;
             flex: none;
         }
 
         .live_chatting_username_container__m1-i5.live_chatting_username_is_ellipsis__5DqoB
-            .live_chatting_username_nickname__dDbbj {
+        .live_chatting_username_nickname__dDbbj {
             min-width: 0;
         }
 
