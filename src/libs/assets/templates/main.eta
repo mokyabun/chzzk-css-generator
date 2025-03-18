@@ -4,7 +4,6 @@
 
 [class*='live_overlay_chatting'] {
     padding: 3px !important;
-
     font-family:
             'Chzzk-CSS-Font',
             -apple-system,
@@ -23,50 +22,49 @@
             noto sans,
             돋움,
             sans-serif !important;
-
-    <% if (it.effect.topGradient === false) { %>
+<% if (it.effect.topGradient === false) { %>
     mask-image: none !important;
     -webkit-mask-image: none !important;
-    <% } %>
+<% } %>
 }
 
 div[class*='live_overlay_item'] {
-    <% if (it.container.enabled === true) { %>
+<% if (it.container.enabled === true) { %>
     border-radius: var(--container-roundness) !important;
-    <% } %>
+<% } %>
     margin: var(--gap) 0 !important;
 }
 
 div[class*='live_overlay_message'] {
-    <% if (it.container.enabled === true) { %>
+<% if (it.container.enabled === true) { %>
     background: var(--container-color) !important;
-    <% } else { %>
+<% } else { %>
     background: transparent !important;
-    <% } %>
+<% } %>
     max-width: 100% !important;
 
-    <% if (it.effect.chat.showEffect) { %>
-    animation: <%= it.effect.chat.showEffect %> !important;
-    animation-duration: <%= it.effect.chat.showDuration %>s !important;
-    <% } else { %>
+<% if (it.effect.chat.showEffect) { %>
+    animation: var(--chat-show-effect) !important;
+    animation-duration: var(--chat-show-duration) !important;
+<% } else { %>
     animation: none !important;
-    <% } %>
+<% } %>
 }
 
 div[class*='live_chatting_message_wrapper'] {
     font-size: var(--size) !important;
-    <% if (it.outline.enabled === true) { %>
+<% if (it.outline.enabled === true) { %>
     text-shadow: <%= it.outline.shadow %> !important;
-    <% } %>
+<% } %>
     line-height: var(--text-height) !important;
     letter-spacing: var(--text-spacing) !important;
     -webkit-font-smoothing: antialiased !important;
 
-    <% if (it.container.enabled === true) { %>
+<% if (it.container.enabled === true) { %>
     padding: var(--container-padding) !important;
-    <% } else { %>
+<% } else { %>
     padding: 0 !important;
-    <% } %>
+<% } %>
 }
 
 <% if (!it.nickname.badge && !it.nickname.enabled) { %>
@@ -75,24 +73,24 @@ span[class*='live_chatting_username_container'] {
 }
 <% } else { %>
 span[class*='live_chatting_username_wrapper'] {
-    <% if (it.nickname.badge) { %>
+<% if (it.nickname.badge) { %>
     vertical-align: middle !important;
     height: 1em !important;
 
     gap: 0.1em !important;
     margin: -0.2em 0.1em 0 0 !important;
-    <% } else { %>
+<% } else { %>
     display: none !important;
-    <% } %>
+<% } %>
 }
 
 <% if (it.nickname.enabled) { %>
 span[class*='live_chatting_username_container'] {
    font-size: var(--nickname-size) !important;
    margin-right: var(--nickname-gap) !important;
-   <% if (it.nickname.break === true) { %>
+<% if (it.nickname.break === true) { %>
    display: block !important;
-   <% } %>
+<% } %>
 }
 <% } %>
 
@@ -100,15 +98,12 @@ span[class*='live_chatting_username_container'] {
 span[class*='live_chatting_username_nickname'] {
     display: none !important;
 }
-<% } else { %>
+<% } else if (it.nickname.overrideColor) { %>
 span[class*='live_chatting_username_nickname'] {
-    <% if (it.nickname.overrideColor) { %>
     color: <%= it.nickname.color %> !important;
-    <% } %>
 }
 <% } %>
 <% } %>
-
 span[class*='live_chatting_message_text'] {
     font-size: var(--text-size) !important;
     color: var(--text-color) !important;
@@ -129,20 +124,8 @@ span[class*='live_chatting_username_nickname']::after {
     content: ' : ';
 }
 <% } %>
-
 span[class*='badge_container'] > img,
 span[class*='badge_container'] > svg {
     height: 1em !important;
     width: auto !important;
 }
-
-<% if (it.effect.chat.showEffect === 'fade') { %>
-@keyframes fade {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-<% } %>

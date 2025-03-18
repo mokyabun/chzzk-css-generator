@@ -1,3 +1,4 @@
+:root {
     --size: <%= it.general.size %>px;
     --gap: <%= it.general.gap %>em;
 
@@ -12,7 +13,9 @@
     --container-color: <%= it.container.color %>;
     --container-padding: <%= it.container.padding %>em;
     --container-roundness: <%= it.container.roundness %>em;
-    <%- if (it.effect.chat.showEffect) { %>
+
+<%- if (it.effect.chat.showEffect) { %>
     --chat-show-effect: <%= it.effect.chat.showEffect %>;
     --chat-show-duration: <%= it.effect.chat.showDuration %>s;
-    <%_ } %>
+<%_ } %>
+}

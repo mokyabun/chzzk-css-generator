@@ -29,7 +29,9 @@ export function preprocess(config: Config): PreprocessedConfig {
 }
 
 function animateCSSImporter(config: PreprocessedConfig) {
-    return config.effect.chat.showEffect ? '@import url(\'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css\');' : ''
+    return config.effect.chat.showEffect
+        ? "@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');"
+        : ''
 }
 
 function generateFont(config: PreprocessedConfig): string {
@@ -37,7 +39,7 @@ function generateFont(config: PreprocessedConfig): string {
 }
 
 function generateVariables(config: PreprocessedConfig): string {
-    return ':root {\n' + eta.render(variablesFn, config) + '\n}\n'
+    return eta.render(variablesFn, config)
 }
 
 function generateMain(config: PreprocessedConfig): string {
@@ -46,10 +48,14 @@ function generateMain(config: PreprocessedConfig): string {
 
 export async function generate(preprocessed: PreprocessedConfig) {
     const results = await Promise.all([
-        animateCSSImporter(preprocessed),
         generateVariables(preprocessed),
         generateFont(preprocessed),
         generateMain(preprocessed),
     ])
-    return results.join('\n')
+
+    if (preprocessed.effect.chat.showEffect) {
+        results.unshift(animateCSSImporter(preprocessed))
+    }
+
+    return results.join('\n\n')
 }
