@@ -28,12 +28,12 @@
     {#if config.effect.chat.showEffect}
         <InternalContainer>
             지속시간
-            <div class="flex w-3/4 justify-end gap-2 items-center">
-                <span class="text-xs w-6">
+            <div class="flex w-3/4 items-center justify-end gap-2">
+                <span class="w-6 text-xs">
                     {config.effect.chat.showDuration}
                 </span>
                 <input
-                    class="range"
+                    class="range w-full"
                     type="range"
                     min="0.1"
                     max="2"
