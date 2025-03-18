@@ -29,7 +29,7 @@
 </script>
 
 <aside
-    class="hide-scroll overflow-y-auto rounded-br-2xl bg-base-100 py-6 shadow-lg transition-[min-width] {open.value
+    class="hide-scroll bg-base-100 overflow-y-auto py-6 shadow-lg transition-[min-width] {open.value
         ? 'min-w-52 duration-300'
         : 'min-w-0 duration-500'}"
 >
