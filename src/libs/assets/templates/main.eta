@@ -36,12 +36,12 @@ div[class*='live_overlay_item'] {
 }
 
 div[class*='live_overlay_message'] {
+    max-width: 100% !important;
 <% if (it.container.enabled === true) { %>
     background: var(--container-color) !important;
 <% } else { %>
     background: transparent !important;
 <% } %>
-    max-width: 100% !important;
 
 <% if (it.effect.chat.showEffect) { %>
     animation: var(--chat-show-effect) !important;
