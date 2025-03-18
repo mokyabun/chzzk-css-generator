@@ -1,5 +1,83 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
-
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css");
+@import 'tailwindcss';
+
+@theme {
+    --font-family-sans: "Pretendard Variable", sans-serif;
+}
+
+@plugin "daisyui" {
+    themes: light --default, dark --prefersdark;
+}
+
+@plugin "daisyui/theme" {
+    name: light;
+    default: true;
+    prefersdark: false;
+    color-scheme: light;
+    --color-base-100: oklch(100% 0 0);
+    --color-base-200: oklch(97% 0 0);
+    --color-base-300: oklch(94% 0 0);
+    --color-base-content: oklch(20% 0 0);
+    --color-primary: oklch(87% 0 0);
+    --color-primary-content: oklch(26% 0 0);
+    --color-secondary: oklch(87% 0 0);
+    --color-secondary-content: oklch(26% 0 0);
+    --color-accent: oklch(87% 0 0);
+    --color-accent-content: oklch(26% 0 0);
+    --color-neutral: oklch(87% 0 0);
+    --color-neutral-content: oklch(26% 0 0);
+    --color-info: oklch(44% 0.11 240.79);
+    --color-info-content: oklch(90% 0.058 230.902);
+    --color-success: oklch(43% 0.095 166.913);
+    --color-success-content: oklch(90% 0.093 164.15);
+    --color-warning: oklch(47% 0.137 46.201);
+    --color-warning-content: oklch(92% 0.12 95.746);
+    --color-error: oklch(44% 0.177 26.899);
+    --color-error-content: oklch(88% 0.062 18.334);
+    --radius-selector: 0.25rem;
+    --radius-field: 0.25rem;
+    --radius-box: 0.25rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.25rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+}
+
+
+@plugin "daisyui/theme" {
+    name: dark;
+    default: false;
+    prefersdark: false;
+    color-scheme: dark;
+    --color-base-100: oklch(14% 0 0);
+    --color-base-200: oklch(20% 0 0);
+    --color-base-300: oklch(26% 0 0);
+    --color-base-content: oklch(100% 0 0);
+    --color-primary: oklch(74.703% 0.158 39.947);
+    --color-primary-content: oklch(14.94% 0.031 39.947);
+    --color-secondary: oklch(72.537% 0.177 2.72);
+    --color-secondary-content: oklch(14.507% 0.035 2.72);
+    --color-accent: oklch(71.294% 0.166 299.844);
+    --color-accent-content: oklch(14.258% 0.033 299.844);
+    --color-neutral: oklch(26% 0.019 237.69);
+    --color-neutral-content: oklch(70% 0.019 237.69);
+    --color-info: oklch(85.559% 0.085 206.015);
+    --color-info-content: oklch(17.111% 0.017 206.015);
+    --color-success: oklch(85.56% 0.085 144.778);
+    --color-success-content: oklch(17.112% 0.017 144.778);
+    --color-warning: oklch(85.569% 0.084 74.427);
+    --color-warning-content: oklch(17.113% 0.016 74.427);
+    --color-error: oklch(85.511% 0.078 16.886);
+    --color-error-content: oklch(17.102% 0.015 16.886);
+    --radius-selector: 0.25rem;
+    --radius-field: 0.25rem;
+    --radius-box: 0.25rem;
+    --size-selector: 0.25rem;
+    --size-field: 0.28125rem;
+    --border: 1px;
+    --depth: 0;
+    --noise: 0;
+}
+
+

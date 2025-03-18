@@ -1,10 +1,11 @@
+import tailwindcss from '@tailwindcss/vite'
 import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig } from 'vitest/config'
 import { sveltekit } from '@sveltejs/kit/vite'
 import viteCompression from 'vite-plugin-compression'
 
 export default defineConfig({
-    plugins: [sveltekit(), viteCompression({ algorithm: 'brotliCompress' }), visualizer()],
+    plugins: [tailwindcss(), sveltekit(), viteCompression({ algorithm: 'brotliCompress' }), visualizer()],
 
     build: {
         minify: 'terser',
