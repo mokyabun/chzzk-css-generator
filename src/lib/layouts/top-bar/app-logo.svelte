@@ -1,6 +1,6 @@
 <script lang="ts">
-    import { ChzzkLogo } from '$assets/images'
-    import { theme } from '$lib/states'
+    import { ChzzkLogo } from '$lib/assets'
+    import { theme } from './state.svelte'
 </script>
 
 <div class="flex items-center gap-[0.4em] text-xl md:text-2xl">

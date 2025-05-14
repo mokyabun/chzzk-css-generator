@@ -16,10 +16,7 @@
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.2.7",
-		"@playwright/test": "^1.51.1",
-		"@steeze-ui/svelte-icon": "^1.6.2",
-		"@steeze-ui/tabler-icons": "^3.3.1",
-		"@sveltejs/adapter-auto": "^3.3.1",
+		"@iconify/svelte": "^5.0.0",
 		"@sveltejs/adapter-static": "^3.0.8",
 		"@sveltejs/kit": "^2.20.0",
 		"@sveltejs/vite-plugin-svelte": "^5.0.3",
@@ -48,6 +45,7 @@
 	"dependencies": {
 		"@simonwep/pickr": "^1.9.1",
 		"eta": "^3.5.0",
+		"idb": "^8.0.3",
 		"lodash.debounce": "^4.0.8",
 		"zod": "^3.24.2"
 	}

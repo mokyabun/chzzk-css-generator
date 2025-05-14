@@ -1,12 +1,10 @@
 import { untrack } from 'svelte'
 
-type PromiseVoidFunction = () => void | Promise<void>
-
 export type Getter<T> = () => T
 
 function internalWatch<T>(
     source: Getter<T> | Array<Getter<T>>,
-    effectFunc: (values: T | Array<T>) => void | PromiseVoidFunction,
+    effectFunc: (values: T | Array<T>) => void | VoidFunction,
     lazy = false,
 ) {
     let active = !lazy
@@ -27,13 +25,13 @@ export function watch<T extends Array<unknown>>(
     source: {
         [K in keyof T]: Getter<T[K]>
     },
-    effectFunc: (values: T) => void | PromiseVoidFunction,
+    effectFunc: (values: T) => void | VoidFunction,
     lazy?: boolean,
 ): void
-export function watch<T>(source: Getter<T>, effectFunc: (value: T) => void | PromiseVoidFunction, lazy?: boolean): void
+export function watch<T>(source: Getter<T>, effectFunc: (value: T) => void | VoidFunction, lazy?: boolean): void
 export function watch<T>(
     source: Getter<T> | Array<Getter<T>>,
-    effectFunc: (values: T | Array<T>) => void | PromiseVoidFunction,
+    effectFunc: (values: T | Array<T>) => void | VoidFunction,
     lazy = false,
 ) {
     internalWatch(source, effectFunc, lazy)

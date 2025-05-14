@@ -1,2 +1,2 @@
-export * from './side-bar'
-export * from './top-bar'
+export { SideBar } from './side-bar'
+export { TopBar } from './top-bar'

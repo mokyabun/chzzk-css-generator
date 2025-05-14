@@ -1,8 +1,7 @@
-let titleOpenTimeout: number | null = null
-
 export const sideBarOpen = $state<{ value: boolean }>({ value: false })
 export const sideBarTitleOpen = $state<{ value: boolean }>({ value: false })
 
+let titleOpenTimeout: number | null = null
 export function toggleSideBar() {
     sideBarOpen.value = !sideBarOpen.value
 

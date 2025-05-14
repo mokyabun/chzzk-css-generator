@@ -1,20 +1,17 @@
 <script lang="ts">
+    import { TopBar, SideBar } from '$lib/layouts'
     import '../app.css'
-    import '@simonwep/pickr/dist/themes/nano.min.css'
-    import { Example } from './components/example'
-    import { Sidebar } from './components/sidebar'
-    import { Topbar } from './components/topbar'
 
     let { children } = $props()
 </script>
 
-<Topbar />
-<div class="fixed top-0 flex h-screen w-full bg-base-200 pt-16">
-    <div class="flex w-[65%] divide-base-content/20">
-        <Sidebar />
-        <div class="m-6 flex flex-1 flex-col gap-8 overflow-y-auto p-6 pb-20 relative">
+<TopBar />
+<div class="bg-base-200 fixed top-0 flex h-screen w-full pt-16">
+    <div class="divide-base-content/20 flex w-[65%]">
+        <SideBar />
+        <div class="relative m-6 flex flex-1 flex-col gap-8 overflow-y-auto p-6 pb-20">
             {@render children()}
-            <div class="absolute text-xs font-extralight justify-self-end bottom-0">
+            <div class="absolute bottom-0 justify-self-end text-xs font-extralight">
                 버그 제보 및 문의:
                 <p class="inline font-bold">
                     <a href="mailto:mo@kya.sh" class="link">mokya</a>
@@ -27,7 +24,5 @@
             </div>
         </div>
     </div>
-    <div class="h-full w-[35%] border border-base-content/20 bg-base-300">
-        <Example class="h-full w-full" />
-    </div>
+    <div class="border-base-content/20 bg-base-300 h-full w-[35%] border"></div>
 </div>
