@@ -1,15 +1,11 @@
-import tailwindcss from '@tailwindcss/vite'
-import { visualizer } from 'rollup-plugin-visualizer'
-import { defineConfig } from 'vitest/config'
 import { sveltekit } from '@sveltejs/kit/vite'
+import tailwindcss from '@tailwindcss/vite'
+import { defineConfig } from 'vite'
 import viteCompression from 'vite-plugin-compression'
 
 export default defineConfig({
-    plugins: [tailwindcss(), sveltekit(), viteCompression({ algorithm: 'brotliCompress' }), visualizer()],
-
+    plugins: [tailwindcss(), sveltekit(), viteCompression({ algorithm: 'brotliCompress' })],
     build: {
-        minify: 'terser',
-        cssMinify: 'lightningcss',
         rollupOptions: {
             external: ['@simonwep/pickr', 'eta', 'lodash.debounce', 'zod'],
             output: {
@@ -21,8 +17,5 @@ export default defineConfig({
                 },
             },
         },
-    },
-    test: {
-        include: ['src/**/*.{test,spec}.{js,ts}'],
     },
 })
