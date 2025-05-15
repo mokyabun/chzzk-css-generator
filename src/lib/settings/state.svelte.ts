@@ -17,7 +17,7 @@ export const settings = $state(initialState)
 export const generated = $state({ value: '' })
 
 const debouncedOnUpdate = debounce((value) => {
-    set(SETTINGS_KEY, value).catch((e) => {
+    set(SETTINGS_KEY, value).catch((e: Error) => {
         console.error('Failed to save settings', e)
     })
 }, 500)
