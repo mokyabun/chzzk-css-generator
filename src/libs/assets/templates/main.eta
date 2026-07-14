@@ -2,7 +2,8 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 <% } %>
 
-[class*='live_overlay_chatting'] {
+[class*='live_overlay_chatting'],
+div[class*='_chatting_'] {
     padding: 3px !important;
     font-family:
             'Chzzk-CSS-Font',
@@ -28,14 +29,16 @@
 <% } %>
 }
 
-div[class*='live_overlay_item'] {
+div[class*='live_overlay_item'],
+div[class*='_item_'][class*='_message_'] {
 <% if (it.container.enabled === true) { %>
     border-radius: var(--container-roundness) !important;
 <% } %>
     margin: var(--gap) 0 !important;
 }
 
-div[class*='live_overlay_message'] {
+div[class*='live_overlay_message'],
+div[class*='_item_'][class*='_message_'] {
     max-width: 100% !important;
 <% if (it.container.enabled === true) { %>
     background: var(--container-color) !important;
@@ -51,7 +54,8 @@ div[class*='live_overlay_message'] {
 <% } %>
 }
 
-div[class*='live_chatting_message_wrapper'] {
+div[class*='live_chatting_message_wrapper'],
+div[class*='_item_'][class*='_message_'] div[class*='_wrapper_'] {
     font-size: var(--size) !important;
 <% if (it.outline.enabled === true) { %>
     text-shadow: <%= it.outline.shadow %> !important;
@@ -68,7 +72,8 @@ div[class*='live_chatting_message_wrapper'] {
 }
 
 <% if (!it.nickname.badge && !it.nickname.enabled) { %>
-span[class*='live_chatting_username_container'] {
+span[class*='live_chatting_username_container'],
+span[class*='_container_'][class*='_is_message_'][class*='_is_overlay_'] {
     display: none !important;
 }
 <% } else { %>
@@ -84,8 +89,21 @@ span[class*='live_chatting_username_wrapper'] {
 <% } %>
 }
 
+span[class*='_container_'][class*='_is_message_'][class*='_is_overlay_'] > :not(span[class*='_nickname_']) {
+<% if (it.nickname.badge) { %>
+    vertical-align: middle !important;
+    height: 1em !important;
+
+    gap: 0.1em !important;
+    margin: -0.2em 0.1em 0 0 !important;
+<% } else { %>
+    display: none !important;
+<% } %>
+}
+
 <% if (it.nickname.enabled) { %>
-span[class*='live_chatting_username_container'] {
+span[class*='live_chatting_username_container'],
+span[class*='_container_'][class*='_is_message_'][class*='_is_overlay_'] {
    font-size: var(--nickname-size) !important;
    margin-right: var(--nickname-gap) !important;
 <% if (it.nickname.break === true) { %>
@@ -95,22 +113,27 @@ span[class*='live_chatting_username_container'] {
 <% } %>
 
 <% if (!it.nickname.enabled) { %>
-span[class*='live_chatting_username_nickname'] {
+span[class*='live_chatting_username_nickname'],
+span[class*='_nickname_'] {
     display: none !important;
 }
 <% } else if (it.nickname.overrideColor) { %>
-span[class*='live_chatting_username_nickname'] {
+span[class*='live_chatting_username_nickname'],
+span[class*='_nickname_'] {
     color: <%= it.nickname.color %> !important;
 }
 <% } %>
 <% } %>
-span[class*='live_chatting_message_text'] {
+span[class*='live_chatting_message_text'],
+div[class*='_item_'][class*='_message_'] div[class*='_wrapper_'] > span[class*='_text_'] {
     font-size: var(--text-size) !important;
     color: var(--text-color) !important;
 }
 
 span[class*='live_chatting_message_text'] > img,
-span[class*='live_chatting_message_text'] > svg {
+span[class*='live_chatting_message_text'] > svg,
+div[class*='_item_'][class*='_message_'] div[class*='_wrapper_'] > span[class*='_text_'] > img,
+div[class*='_item_'][class*='_message_'] div[class*='_wrapper_'] > span[class*='_text_'] > svg {
     margin: -0.2em 0 0 0 !important;
     vertical-align: middle !important;
 
@@ -119,7 +142,8 @@ span[class*='live_chatting_message_text'] > svg {
 }
 
 <% if (it.nickname.divider === true) { %>
-span[class*='live_chatting_username_nickname']::after {
+span[class*='live_chatting_username_nickname']::after,
+span[class*='_nickname_']::after {
     /* Add ':' after nickname */
     content: ' : ';
 }
